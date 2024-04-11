@@ -10,7 +10,7 @@ scaler = MinMaxScaler()
 X,y = make_blobs(n_samples=100,centers=2,n_features=2,random_state=1)
 
 scaler.fit(X)
-X = Scaler.transform(X)
+X = scaler.transform(X)
 
 model = Sequential()
 model.add(Dense(units=4,input_dim=2,activation='relu'))
