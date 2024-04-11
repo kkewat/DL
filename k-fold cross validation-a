@@ -1,16 +1,18 @@
 #loading libraries
 import pandas
+from tensorflow import keras
 from keras.models import Sequential
-
 from keras.layers import Dense
-from keras.wrappers.scikit_learn import KerasClassifier
-from keras.utils import np_utils
+#from keras.wrappers.scikit_learn import KerasClassifier
+from scikeras.wrappers import KerasClassifier
+#from keras.utils import np_utils
+from tensorflow.keras import utils as np_utils
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import KFold
 from sklearn.preprocessing import LabelEncoder
 
 #loading dataset
-df=pandas.read_csv('Flower.csv',header=None)
+df=pandas.read_csv('flowers.csv',header=None)
 print(df)
 #splitting dataset into input and output variables
 X = df.iloc[:,0:4].astype(float)
