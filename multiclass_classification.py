@@ -15,14 +15,16 @@ X = scaler.transform(X)
 model = Sequential()
 model.add(Dense(units=4,input_dim=2,activation='relu'))
 model.add(Dense(units=4,activation='relu'))
-model.add(Dense(units=2,activation='sigmoid'))
+model.add(Dense(units=1,activation='sigmoid'))
 
-model.compile(loss='binary_crossentropy',optimizer='adam',metrics=['accuracy'])
+model.compile(loss='binary_crossentropy',optimizer='adam')
 model.summary()
 
 model.fit(X,y, epochs=100)
 
-test_X,test_y = make_blob(n_samples=5,centers=2,n_features=2,random_state=20)
+test_X,test_y = make_blobs(n_samples=5,centers=2,n_features=2,random_state=20)
+test_X = scaler.transform(test_X)
+
 prediction = model.predict(test_X)
 
 for i in range(5):
