@@ -38,7 +38,7 @@ estimator.fit(X,dummy_Y,epochs=100,shuffle=True)
 action=estimator.predict(X)
 
 for i in range(25):
-print(dummy_Y[i])
+  print(dummy_Y[i])
 print('^^^^^^^^^^^^^^^^^^^^^^')
 for i in range(25):
   print(action[i])
